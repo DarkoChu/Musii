@@ -5,75 +5,108 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Musii</title>
+
+  <link rel="stylesheet" href="loading.css">
   <link rel="stylesheet" href="sidebar&main.css">
   <link rel="stylesheet" href="topbar.css">
+  <link rel="stylesheet" href="colours.css">
+  <link rel="stylesheet" href="fixes.css">
 </head>
 
 <body>
+
+  <!-- ============================================
+       BACKGROUND CROSSFADER LAYERS (new)
+  ================================================ -->
+  <div class="bg-layer default" aria-hidden="true"></div>
+  <div class="bg-layer profile" aria-hidden="true"></div>
+
+  <!-- ============================================
+       LOADING SCREEN (unchanged)
+  ================================================ -->
+  <div id="loading-screen">
+    <div class="loader"></div>
+    <span>Loading…</span>
+  </div>
+  <audio id="load-sound" src="sfx/Switch/Bing.wav"></audio>
+  <script src="loading.js"></script>
+
+  <!-- ============================================
+       SIDEBAR
+  ================================================ -->
   <div class="sidebar">
+
+    <!-- LOGO WITH SMOOTH GRADIENT TRANSITION -->
     <div class="logo-img">
       <div class="logo-gradient-mask">
         <img src="assets/logo/musii.png" alt="Sidebar Logo">
+        <!-- NEW: profile-theme gradient layer -->
+        <div class="logo-overlay"></div>
       </div>
     </div>
 
     <div class="menu-buttons">
+
       <div class="side-btn">
-        <div class="border-wrap">
-        <img src="https://avatars.githubusercontent.com/u/91407595?v=4" class="icon" id="profile">
+        <div class="btn-content">
+          <div class="border-wrap">
+            <img src="https://avatars.githubusercontent.com/u/91407595?v=4" class="icon" id="profile">
+          </div>
+          <span>My Profile</span>
         </div>
-        <span>My Profile</span>
       </div>
 
       <div class="side-btn">
-        <img src="assets/icons/disc-fill.png" class="icon" id="library">
-        <span>Library</span>
+        <div class="btn-content">
+          <img src="assets/icons/disc-fill.png" class="icon" id="library">
+          <span>Library</span>
+        </div>
       </div>
 
       <div class="side-btn">
-        <img src="assets/icons/person-hearts.png" class="icon" id="friends">
-        <span>Friends</span>
+        <div class="btn-content">
+          <img src="assets/icons/person-hearts.png" class="icon" id="friends">
+          <span>Friends</span>
+        </div>
       </div>
 
-      <div class="side-btn">
-        <img src="assets/icons/binoculars-fill.png" class="icon" id="discover">
-        <span>Discover</span>
+      <div class="side-btn active">
+        <div class="btn-content">
+          <img src="assets/icons/binoculars-fill.png" class="icon" id="discover">
+          <span>Discover</span>
+        </div>
       </div>
 
       <div class="side-btn last">
-        <img src="assets/icons/gear-fill.png" class="icon" id="settings">
-        <span>Settings</span>
+        <div class="btn-content">
+          <img src="assets/icons/gear-fill.png" class="icon" id="settings">
+          <span>Settings</span>
+        </div>
       </div>
+
     </div>
   </div>
 
+  <!-- ============================================
+       MAIN
+  ================================================ -->
   <div class="main">
     <header class="topbar">
-  <div class="topbar-left wiiu-glass">
-    <div class="title">Good Afternoon!</div>
+      <div class="topbar-left wiiu-glass">
+        <div class="title" id="greeting-text">Good Afternoon!</div>
+      </div>
+
+      <div class="topbar-right wiiu-glass">
+        <div class="right-info" id="clock-text">--:-- -- l --/--</div>
+      </div>
+      <script src="topbar.js"></script>
+    </header>
   </div>
 
-  <div class="topbar-right wiiu-glass">
-    <div class="right-info">12:00 PM | 08/25</div>
-  </div>
-</header>
-
-
-    <!-- <div class="bubble-row">
-      <div class="bubble">GO Vacation<br><span>snow tubing?</span></div>
-      <div class="bubble">Sonic Shuffle<br><span>better than mario party</span></div>
-      <div class="bubble">Hogan's Castle<br><span>Hunk Hogan</span></div>
-      <div class="bubble">Disney Infinity<br><span>I don’t see Sora</span></div>
-      <div class="bubble">Project SEKAI<br><span>my passion</span></div>
-    </div>
-
-    <div class="game-grid">
-      <div class="game-card">Sonic Colors DS</div>
-      <div class="game-card">Animal Crossing</div>
-      <div class="game-card">Sonic Drift</div>
-      <div class="game-card">Pokémon Rumble U</div>
-    </div> -->
-  </div>
+  <script src="sounds.js"></script>
+  <script src="interactive.js"></script>
+  <script src="profile.js"></script>
+  <script src="bg_fix.js"></script>
 
 </body>
 

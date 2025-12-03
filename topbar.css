@@ -19,6 +19,18 @@
         /* 👆 NEW LOGO GRADIENT VARIABLES (moved up for clarity) */
     }
 
+    /* Prevent text & image selection globally */
+    *,
+    img {
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+
+        -webkit-user-drag: none;
+    }
+
+
     .topbar {
         width: 100%;
         display: flex;
@@ -84,9 +96,6 @@
         text-shadow: none;
         /* ← remove glow entirely */
     }
-
-
-
 
     /* RIGHT PILL */
     .topbar-right {

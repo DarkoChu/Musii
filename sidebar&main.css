@@ -12,19 +12,19 @@
   --accent2: #71ffb9;
   /* Light Green/Cyan */
 
-  /* 👇 MODIFIED/NEW BACKGROUND VARIABLES */
+  /*  MODIFIED/NEW BACKGROUND VARIABLES */
   --bg1: #d2faff;
   /* Brightened accent1 (Original: #c7f7ff) */
   --bg2: #f2fff6;
   /* Brightened accent2 (Original: #dfffcf) */
-  /* 👆 MODIFIED/NEW BACKGROUND VARIABLES */
+  /*  MODIFIED/NEW BACKGROUND VARIABLES */
 
   --sidebar-bg: rgba(255, 255, 255, 0.55);
   --glass-bg: rgba(255, 255, 255, 0.6);
   --bubble-bg: white;
   --card-bg: white;
 
-  /* 👆 NEW LOGO GRADIENT VARIABLES (moved up for clarity) */
+  /*  NEW LOGO GRADIENT VARIABLES (moved up for clarity) */
 }
 
 * {
@@ -34,16 +34,26 @@
   font-family: "WiiUFont", "Segoe UI", sans-serif;
 }
 
+/* Prevent text & image selection globally */
+*,
+img {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  -webkit-user-drag: none;
+}
+
+
 body {
-  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  background: none !important;   /* ← STOP overriding the bg-layer */
   display: flex;
   transform-origin: top left;
   min-height: 100vh;
-  /* 👇 NEW: Set a custom cursor for the general interface */
-  /* Replace 'path/to/custom-cursor.png' with your actual file path */
   cursor: url('assets/WiiCursor.png') 16 16, auto;
-  /* 16 16 are the X and Y coordinates of the 'hotspot' (the exact clicking point) */
 }
+
 
 /* ----- SIDEBAR ----- */
 
@@ -54,13 +64,14 @@ body {
   top: 0;
   left: 0;
 
-  /* 👇 MODIFICATIONS FOR MORE TRANSPARENCY AND GLASS EFFECT */
+  /*  MODIFICATIONS FOR MORE TRANSPARENCY AND GLASS EFFECT */
   /* Reduced opacity from 0.25 to 0.15 for more transparency */
-  background: rgba(53, 53, 53, 0.15);
+  background: rgba(53, 53, 53, 0.22);
+
   /* Increased blur value for a stronger glass effect */
   backdrop-filter: blur(40px) brightness(1.1);
   -webkit-backdrop-filter: blur(40px) brightness(1.1);
-  /* 👆 END MODIFICATIONS */
+  /*  END MODIFICATIONS */
 
   border-right: 2px solid rgba(255, 255, 255, 0.45);
 
@@ -79,21 +90,23 @@ body {
     /* Inner glow on the top */
     inset 0 -90px 62px -40px rgba(255, 255, 255, 0.842);
   /* Inner glow on the bottom */
-  /* 👆 END MODIFIED box-shadow */
+  /*  END MODIFIED box-shadow */
 
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+
+
 }
 
 .logo-img {
   display: flex;
-  /* Ensure centering works */
   justify-content: center;
   align-items: center;
   padding-bottom: 20px;
   padding-top: 10px;
   height: 75px;
-  /* Give it a defined height */
+
 }
 
 .logo-gradient-mask {
@@ -133,11 +146,14 @@ body {
 }
 
 .border-wrap {
-  height: 90px;        /* profile size + border */
+  height: 90px;
+  /* profile size + border */
   width: 90px;
-  padding: 5px;        /* border thickness */
+  padding: 5px;
+  /* border thickness */
   border-radius: 50%;
-  background: linear-gradient(30deg, #ff95b8, #dfdfdf); /* your gradient */
+  background: linear-gradient(30deg, #ff95b8, #dfdfdf);
+  /* your gradient */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -149,7 +165,9 @@ body {
   width: 80px;
   background: #00000010;
   border-radius: 50%;
+  filter: saturate(2) brightness(1.15) !important;
 }
+
 
 .side-btn {
   width: 100%;
@@ -160,7 +178,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* ⬅ CENTER CONTENT VERTICALLY */
 
   gap: 6px;
 
@@ -168,23 +185,61 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 
   cursor: pointer;
-  transition: background 0.2s ease;
+
+  /*  Only ONE transition (fast) */
+  transition: background 0.05s ease, box-shadow 0.05s ease, transform 0.05s ease;
 
   flex: 1;
-  /* if you are using full-height evenly distributed buttons */
 
-  cursor: pointer;
-  /* Use the standard pointer/hand icon */
-  transition: background 0.2s ease;
-  flex: 1;
+}
 
 
+/* Remove bottom border from the final sidebar button */
+.side-btn:last-of-type {
+  border-bottom: none !important;
+}
+
+.side-btn:active {
+  background: rgba(0, 0, 0, 0.38);
+  transform: none;
+  /* no shrinking for whole button */
+
+  box-shadow:
+    inset 0 4px 10px rgba(255, 255, 255, 0.55),
+    inset 0 -8px 18px rgba(0, 0, 0, 0.45),
+    inset 0 0 25px rgba(0, 0, 0, 0.35);
+}
+
+.side-btn:active .icon,
+.side-btn:active span {
+  transform: scale(0.92);
+  /* shrink only inside content */
+  transition: transform 0.05s ease;
+}
+
+.btn-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.05s ease;
+}
+
+.side-btn:active .btn-content {
+  transform: scale(0.92);
+  /* shrink group together */
 }
 
 .side-btn:hover {
   background: rgba(255, 255, 255, 0.28);
   cursor: pointer;
 }
+
+.side-btn.active {
+  background: rgba(0, 0, 0, 0.22);
+  box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.507);
+}
+
 
 .side-btn:first-of-type {
   border-top: none;
@@ -217,9 +272,9 @@ body {
 .main {
   flex: 1;
   padding: 20px;
-  /* 👇 ADD THIS LINE */
+  /*  ADD THIS LINE */
   margin-left: 10%;
-  /* 👆 ADD THIS LINE */
+  /*  ADD THIS LINE */
 }
 
 
@@ -266,3 +321,34 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   font-weight: 600;
 }
+
+#profile {
+  opacity: 1 !important;
+  /* restore full color */
+  filter: saturate(2) brightness(1.15) !important;
+}
+
+.logo-gradient-mask {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: url('assets/logo/musii.png') center / contain no-repeat;
+  mask: url('assets/logo/musii.png') center / contain no-repeat;
+  background: linear-gradient(45deg, var(--accent1), var(--accent2));
+}
+
+/* Overlay for profile theme gradient */
+.logo-gradient-mask .logo-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: linear-gradient(45deg, #ff7ccb, #ffbcf9);
+  -webkit-mask: url('assets/logo/musii.png') center / contain no-repeat;
+  mask: url('assets/logo/musii.png') center / contain no-repeat;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+
+
+
+
