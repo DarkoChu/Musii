@@ -1,3 +1,7 @@
+/* =====================================================
+   Background Crossfade System (Final Working Version)
+   ===================================================== */
+
 .bg-layer {
   position: fixed;
   inset: 0;
@@ -6,14 +10,23 @@
   transition: opacity 0.6s ease;
 }
 
+/* Default layer always uses current theme vars */
 .bg-layer.default {
   background: linear-gradient(135deg, var(--bg1), var(--bg2));
 }
 
+
+/* Overlay layer (also uses theme vars) */
 .bg-layer.profile {
   background: linear-gradient(135deg, var(--bg1), var(--bg2));
 }
 
+
+/* -------------------------------------
+   THEME BEHAVIOR
+   ------------------------------------- */
+
+/* Any themed page (except Discover) → fade overlay IN */
 html.profile-theme .bg-layer.default,
 html.library-theme .bg-layer.default,
 html.friends-theme .bg-layer.default,
@@ -28,7 +41,7 @@ html.settings-theme .bg-layer.profile {
     opacity: 1;
 }
 
-/* defaults */
+/* Discover = default theme */
 html.discover-theme .bg-layer.default {
     opacity: 1;
 }

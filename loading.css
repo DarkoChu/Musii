@@ -1,3 +1,7 @@
+/* ============================================================
+   FULLSCREEN LOADING OVERLAY (Upgraded Nintendo-style)
+   ============================================================ */
+
 #loading-screen {
   position: fixed;
   inset: 0;
@@ -14,17 +18,23 @@
 
   z-index: 999999;
 
+  /* REQUIRED */
   opacity: 1;
   animation:
   bgShift 6s ease infinite,
   fadeIn 0.5s ease forwards;
 }
 
+
+/* When JS adds .fade-out, the overlay fades out smoothly */
 #loading-screen.fade-out {
   opacity: 0;
   pointer-events: none;
 }
 
+/* ============================================================
+   LOADER RING
+   ============================================================ */
 #loading-screen .loader {
   width: 80px;
   height: 80px;
@@ -39,6 +49,9 @@
   margin-bottom: 25px;
 }
 
+/* ============================================================
+   LOADING TEXT
+   ============================================================ */
 #loading-screen span {
   font-size: 24px;
   color: #333;
@@ -46,27 +59,35 @@
   animation: pulse 1.4s ease-in-out infinite;
 }
 
-/* animations */
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+/* Rotate loader ring */
 @keyframes spin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
 
+/* Soft pop-in reveal for the loader */
 @keyframes popIn {
   0%   { transform: scale(0.6); opacity: 0; }
   100% { transform: scale(1);   opacity: 1; }
 }
 
+/* Pulsing loading text */
 @keyframes pulse {
   0%, 100% { opacity: 0.35; }
   50%      { opacity: 1; }
 }
 
+/* Fade overlay in */
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
 
+/* Smooth animated background shift */
 @keyframes bgShift {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }

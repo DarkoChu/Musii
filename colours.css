@@ -1,34 +1,44 @@
+/* ===== Library Theme ===== */
 :root.library-theme {
   --accent1: #7b9dff;
   --accent2: #b6c8ff;
+
   --bg1: #dfe7ff;
   --bg2: #f7f9ff;
 }
 
+/* ===== Friends Theme ===== */
 :root.friends-theme {
   --accent1: #ffaa00;
   --accent2: #ffe6a3;
+
   --bg1: #fff4d6;
   --bg2: #fffaf0;
 }
 
+/* ===== Discover Theme ===== */
 :root.discover-theme {
   --accent1: #00c3ff;
   --accent2: #71ffb9;
+
   --bg1: #d2faff;
   --bg2: #f2fff6;
 }
 
+/* ===== Settings Theme ===== */
 :root.settings-theme {
   --accent1: #808080;
   --accent2: #e6e6e6;
+
   --bg1: #808080;
   --bg2: #cccccc;
 }
 
+/* ===== Profile Theme ===== */
 :root.profile-theme {
   --accent1: #ff7acb;
   --accent2: #ffd7a3;
+
   --bg1: #ffe6dc;
   --bg2: #fff9f4;
 }
