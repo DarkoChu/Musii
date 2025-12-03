@@ -1,11 +1,10 @@
-// Greeting
-
+// greeting
 function updateGreeting() {
     const greetingEl = document.getElementById("greeting-text");
     const now = new Date();
     const hour = now.getHours();
 
-    let greeting = "Hello!";
+    let greeting = "Hello! Looks like your clock's broken :c";
 
     if (hour >= 5 && hour < 12) {
         greeting = "Good Morning!";
@@ -21,11 +20,9 @@ function updateGreeting() {
 }
 
 updateGreeting();
-setInterval(updateGreeting, 60 * 1000); // update every minute
+setInterval(updateGreeting, 60 * 1000);
 
-
-// Clock
-
+// clock
 function updateClock() {
     const clockEl = document.getElementById("clock-text");
     const now = new Date();
@@ -35,11 +32,12 @@ function updateClock() {
     const month = (now.getMonth() + 1).toString().padStart(2, "0");
     const day = now.getDate().toString().padStart(2, "0");
 
+    // make customizable later
     const ampm = hours >= 12 ? "PM" : "AM";
-    hours = hours % 12 || 12; // convert to 12-hour format
+    hours = hours % 12 || 12;
 
     clockEl.textContent = `${hours}:${minutes} ${ampm} l ${month}/${day}`;
 }
 
 updateClock();
-setInterval(updateClock, 1000); // update every second
+setInterval(updateClock, 1000);
