@@ -1,0 +1,36 @@
+
+
+:root.library-theme {
+  --accent1: #809fff;
+  --accent2: #b9fff9;
+  --bg1: #dfe7ff;
+  --bg2: #f7f9ff;
+}
+
+:root.friends-theme {
+  --accent1: #ffb92e;
+  --accent2: #ffb5f3;
+  --bg1: #fff4d6;
+  --bg2: #fffaf0;
+}
+
+:root.discover-theme {
+  --accent1: #00c3ff;
+  --accent2: #71ffb9;
+  --bg1: #d2faff;
+  --bg2: #f2fff6;
+}
+
+:root.settings-theme {
+  --accent1: #808080;
+  --accent2: #e6e6e6;
+  --bg1: #808080;
+  --bg2: #cccccc;
+}
+
+:root.profile-theme {
+  --accent1: #ff7acb;
+  --accent2: #ffd7a3;
+  --bg1: #ffe6dc;
+  --bg2: #fff9f4;
+}
