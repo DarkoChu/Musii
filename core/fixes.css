@@ -1,0 +1,47 @@
+.bg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+.bg-layer.default {
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+}
+
+.bg-layer.profile {
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+}
+
+html.profile-theme .bg-layer.default,
+html.library-theme .bg-layer.default,
+html.friends-theme .bg-layer.default,
+html.settings-theme .bg-layer.default {
+    opacity: 0;
+}
+
+html.profile-theme .bg-layer.profile,
+html.library-theme .bg-layer.profile,
+html.friends-theme .bg-layer.profile,
+html.settings-theme .bg-layer.profile {
+    opacity: 1;
+}
+
+/* defaults */
+html.discover-theme .bg-layer.default {
+    opacity: 1;
+}
+html.discover-theme .bg-layer.profile {
+    opacity: 0;
+}
+
+.page {
+  padding-top: 70px;
+  padding-left: 1.1%;
+}
+
+.page {
+  position: relative;
+  z-index: 5;
+}

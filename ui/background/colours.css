@@ -1,0 +1,58 @@
+:root.library-theme {
+  --accent1: #809fff;
+  --accent2: #b9fff9;
+  --bg1: #dfe7ff;
+  --bg2: #f7f9ff;
+}
+
+:root.friends-theme {
+  --accent1: #ffb92e;
+  --accent2: #ffb5f3;
+  --bg1: #fff4d6;
+  --bg2: #fffaf0;
+}
+
+:root.discover-theme {
+  --accent1: #00c3ff;
+  --accent2: #71ffb9;
+  --bg1: #d2faff;
+  --bg2: #f2fff6;
+}
+
+:root.settings-theme {
+  --accent1: #808080;
+  --accent2: #e6e6e6;
+  --bg1: #808080;
+  --bg2: #cccccc;
+}
+
+:root.profile-theme {
+  --accent1: #ff7acb;
+  --accent2: #ffd7a3;
+  --bg1: #ffe6dc;
+  --bg2: #fff9f4;
+}
+
+/* ===== LIGHT / DARK MODE ===== */
+
+:root.light {
+  --bg1: #d2faff;
+  --bg2: #f2fff6;
+
+  --sidebar-bg: rgba(255, 255, 255, 0.55);
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --bubble-bg: white;
+  --card-bg: white;
+}
+
+:root.dark {
+  --bg1: #0f172a;
+  --bg2: #020617;
+
+  --sidebar-bg: rgba(15, 23, 42, 0.75);
+  --glass-bg: rgba(20, 30, 60, 0.65);
+  --bubble-bg: #0b1220;
+  --card-bg: #0f172a;
+
+  color-scheme: dark;
+}

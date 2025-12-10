@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Musii</title>
+
+  <link rel="stylesheet" href="ui/background/colours.css">
+  <link rel="stylesheet" href="core/fixes.css">
+  <link rel="stylesheet" href="ui/loading/loading.css">
+  <link rel="stylesheet" href="ui/sidebar/sidebar&main.css">
+  <link rel="stylesheet" href="ui/topbar/topbar.css">
+
+  <link rel="stylesheet" href="pages/discover/discover.css">
+  <link rel="stylesheet" href="pages/settings/settings.css">
+
+</head>
+
+<body>
+  <div class="bg-layer default" aria-hidden="true"></div>
+  <div class="bg-layer profile" aria-hidden="true"></div>
+
+  <div id="loading-screen">
+    <div class="loader"></div>
+    <span>Loading…</span>
+  </div>
+
+  <audio id="load-sound" src="assets/sfx/Switch/Bing.wav"></audio>
+  <script src="ui/loading/loading.js"></script>
+
+  <div class="sidebar">
+    <div class="logo-img">
+      <div class="logo-gradient-mask">
+        <img src="assets/logo/musii.png" alt="Sidebar Logo">
+        <div class="logo-overlay"></div>
+      </div>
+    </div>
+
+    <div class="menu-buttons">
+      <div class="side-btn">
+        <div class="btn-content">
+          <div class="border-wrap">
+            <img src="https://avatars.githubusercontent.com/u/91407595?v=4" class="icon" id="profile">
+          </div>
+          <span>My Profile</span>
+        </div>
+      </div>
+
+      <div class="side-btn">
+        <div class="btn-content">
+          <img src="assets/icons/disc-fill.png" class="icon" id="library">
+          <span>Library</span>
+        </div>
+      </div>
+
+      <div class="side-btn">
+        <div class="btn-content">
+          <img src="assets/icons/person-hearts.png" class="icon" id="friends">
+          <span>Friends</span>
+        </div>
+      </div>
+
+      <div class="side-btn active">
+        <div class="btn-content">
+          <img src="assets/icons/binoculars-fill.png" class="icon" id="discover">
+          <span>Discover</span>
+        </div>
+      </div>
+
+      <div class="side-btn last">
+        <div class="btn-content">
+          <img src="assets/icons/gear-fill.png" class="icon" id="settings">
+          <span>Settings</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="topbar-left wiiu-glass">
+        <div class="title" id="greeting-text">Good Afternoon!</div>
+      </div>
+
+      <div class="topbar-right wiiu-glass">
+        <div class="right-info" id="clock-text">--:-- -- l --/--</div>
+      </div>
+    </header>
+
+    <section class="page discover-page active">
+      <div class="discover-header">Featured Community Submissions</div>
+
+      <div class="featured-row">
+        <div class="featured-card">
+          <div class="fc-header">
+            <div class="fc-avatar"></div>
+            <div class="fc-title">Ananta Set</div>
+          </div>
+
+          <div class="fc-caption">Here's all the media I made for ANANTA &lt;3</div>
+
+          <div class="fc-media"></div>
+
+          <div class="fc-stats">+38 • +42</div>
+        </div>
+
+        <div class="featured-card">
+          <div class="fc-header">
+            <div class="fc-avatar"></div>
+            <div class="fc-title">Ananta Set</div>
+          </div>
+
+          <div class="fc-caption">Here's all the media I made for ANANTA &lt;3</div>
+
+          <div class="fc-media"></div>
+
+          <div class="fc-stats">+38 • +42</div>
+        </div>
+
+        <div class="featured-card">
+          <div class="fc-header">
+            <div class="fc-avatar"></div>
+            <div class="fc-title">Ananta Set</div>
+          </div>
+
+          <div class="fc-caption">Here's all the media I made for ANANTA &lt;3</div>
+
+          <div class="fc-media"></div>
+
+          <div class="fc-stats">+38 • +42</div>
+        </div>
+
+        <div class="featured-card">
+          <div class="fc-header">
+            <div class="fc-avatar"></div>
+            <div class="fc-title">Ananta Set</div>
+          </div>
+
+          <div class="fc-caption">Here's all the media I made for ANANTA &lt;3</div>
+
+          <div class="fc-media"></div>
+
+          <div class="fc-stats">+38 • +42</div>
+        </div>
+
+      </div>
+
+      <div class="discover-grid">
+        <div class="discover-tile theme"></div>
+        <div class="discover-tile media"></div>
+        <div class="discover-tile audio"></div>
+        <div class="discover-tile pixel"></div>
+      </div>
+    </section>
+
+    <section class="page settings-page">
+  <div class="settings-header">Settings</div>
+
+  <div class="settings-grid">
+
+    <!-- THEMES -->
+    <div class="settings-card theme-card">
+      <div class="theme-header">Themes</div>
+
+      <div class="theme-button">
+        <div class="theme-icon-img"></div>
+        <div class="theme-text">Change Theme</div>
+      </div>
+    </div>
+
+    <!-- AUDIO -->
+    <div class="settings-card">
+      <div class="settings-title">Audio</div>
+
+      <div class="settings-item">
+        <span>UI Sounds</span>
+        <label class="switch">
+          <input type="checkbox" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="settings-item">
+        <span>Background Music</span>
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="settings-card">
+      <div class="settings-title">Account</div>
+
+      <button class="settings-btn">Edit Profile</button>
+      <button class="settings-btn danger">Log Out</button>
+    </div>
+
+  </div>
+</section>
+
+
+
+  </div>
+
+<div class="theme-popup" id="themePopup">
+
+  <div class="theme-popup-header">
+    <div class="theme-popup-title">Themes</div>
+
+  </div>
+
+  <div class="theme-popup-body">
+
+    <!-- LEFT: THEME LIST -->
+    <div class="theme-popup-list">
+      <div class="theme-popup-item active">
+        <div class="theme-thumb"></div>
+        <div class="theme-name">MizuUI</div>
+        <div class="theme-points">500 pts</div>
+      </div>
+
+      <div class="theme-popup-item">
+        <div class="theme-thumb"></div>
+        <div class="theme-name">FlatUI</div>
+        <div class="theme-points">Free</div>
+      </div>
+
+      <div class="theme-popup-item">
+        <div class="theme-thumb"></div>
+        <div class="theme-name">Festive</div>
+        <div class="theme-points">250 pts</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: DETAILS -->
+    <div class="theme-popup-details">
+      <div class="theme-author">Elder Monkey</div>
+
+      <div class="theme-description">
+        Liquify your Musii experience with a glossy, water-inspired UI theme.
+      </div>
+
+      <div class="theme-big-preview"></div>
+
+      
+
+      <button class="theme-apply-btn">Apply Theme</button>
+    </div>
+
+  </div>
+
+</div>
+
+  <script src="core/sounds.js"></script>
+  <script src="ui/topbar/topbar.js"></script>
+  <script src="core/interactive.js"></script>
+  <script src="ui/profile/profile.js"></script>
+  <script src="ui/background/bg_fix.js"></script>
+  <script src="pages/settings/settings.js"></script>
+
+
+</body>
+
+</html>

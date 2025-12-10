@@ -1,0 +1,365 @@
+@font-face {
+  font-family: "WiiUFont";
+  src: url("../../assets/fonts/MarvelouzTubeFont3.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "3DSsystemFont";
+  src: url("../../assets/fonts/da3ds.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --accent1: #00c3ff;
+  /* Blue/Cyan color base */
+  --accent2: #71ffb9;
+  /* Light Green/Cyan */
+
+  /*  MODIFIED/NEW BACKGROUND VARIABLES */
+  --bg1: #d2faff;
+  /* Brightened accent1 (Original: #c7f7ff) */
+  --bg2: #f2fff6;
+  /* Brightened accent2 (Original: #dfffcf) */
+  /*  MODIFIED/NEW BACKGROUND VARIABLES */
+
+  --sidebar-bg: rgba(255, 255, 255, 0.55);
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --bubble-bg: white;
+  --card-bg: white;
+
+  /*  NEW LOGO GRADIENT VARIABLES (moved up for clarity) */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "WiiUFont", "3DSsystemFont", "Segoe UI", sans-serif;
+}
+
+/* Prevent text & image selection globally */
+*,
+img {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  -webkit-user-drag: none;
+}
+
+
+body {
+  background: none !important;   /* ← STOP overriding the bg-layer */
+  display: flex;
+  transform-origin: top left;
+  min-height: 100vh;
+  cursor: url('assets/WiiCursor.png') 16 16, auto;
+}
+
+
+/* ----- SIDEBAR ----- */
+
+.sidebar {
+  width: 10%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  /*  MODIFICATIONS FOR MORE TRANSPARENCY AND GLASS EFFECT */
+  /* Reduced opacity from 0.25 to 0.15 for more transparency */
+  background: rgba(53, 53, 53, 0.22);
+
+  /* Increased blur value for a stronger glass effect */
+  backdrop-filter: blur(40px) brightness(1.1);
+  -webkit-backdrop-filter: blur(40px) brightness(1.1);
+  /*  END MODIFICATIONS */
+
+  border-right: 2px solid rgba(255, 255, 255, 0.45);
+
+  padding: 20px 0;
+
+  /* Keep your original rounded borders */
+  border-top-right-radius: 65px;
+  border-bottom-right-radius: 65px;
+
+  box-shadow:
+    4px 0 15px rgba(9, 0, 59, 0.178),
+    /* Existing outer shadow */
+    inset -90px 0 62px -40px rgba(255, 255, 255, 0.842),
+    /* Inner glow on the right */
+    inset 0 90px 62px -40px rgba(255, 255, 255, 0.842),
+    /* Inner glow on the top */
+    inset 0 -90px 62px -40px rgba(255, 255, 255, 0.842);
+  /* Inner glow on the bottom */
+  /*  END MODIFIED box-shadow */
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+
+}
+
+
+
+.logo-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  height: 75px;
+
+}
+
+.logo-gradient-mask {
+  width: 100%;
+  height: 100%;
+  /* Define the gradient background */
+  background: linear-gradient(45deg,
+      var(--accent1),
+      /* Bright Blue */
+      var(--accent2)
+      /* Light Green/Cyan */
+    );
+
+  /* Use the child image as a mask (Webkit/Firefox support) */
+  -webkit-mask: url('../../assets/logo/musii.png') center / contain no-repeat;
+  mask: url('../../assets/logo/musii.png') center / contain no-repeat;
+
+
+  filter: drop-shadow(0 0 12px rgba(0, 220, 255, 0.7));
+}
+
+.logo-img img {
+  /* No need for complex filters now, the mask handles the color! */
+  width: 50%;
+  opacity: 0;
+  /* ⬅ Make the image itself invisible */
+
+  /* Keep the colored drop-shadow, applied to the mask container if possible, 
+     but applying it to the image for simplicity: */
+  filter: drop-shadow(0 0 5px rgba(0, 180, 255, 0.7));
+}
+
+/* ----- SIDEBAR BUTTONS ----- */
+
+.menu-buttons {
+  flex: 1;
+  /* fills all remaining space */
+  display: flex;
+  flex-direction: column;
+}
+
+.border-wrap {
+  height: 90px;
+  /* profile size + border */
+  width: 90px;
+  padding: 5px;
+  /* border thickness */
+  border-radius: 50%;
+  background: linear-gradient(30deg, #ff95b8, #dfdfdf);
+  /* your gradient */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(133, 133, 133, 0.329);
+}
+
+#profile {
+  height: 80px;
+  width: 80px;
+  background: #00000010;
+  border-radius: 50%;
+  filter: saturate(2) brightness(1.15) !important;
+}
+
+
+.side-btn {
+  width: 100%;
+  padding: 4% 0;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.55);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+  cursor: pointer;
+
+  /*  Only ONE transition (fast) */
+  transition: background 0.05s ease, box-shadow 0.05s ease, transform 0.05s ease;
+
+  flex: 1;
+
+}
+
+
+/* Remove bottom border from the final sidebar button */
+.side-btn:last-of-type {
+  border-bottom: none !important;
+}
+
+.side-btn:active {
+  background: rgba(0, 0, 0, 0.38);
+  transform: none;
+  /* no shrinking for whole button */
+
+  box-shadow:
+    inset 0 4px 10px rgba(255, 255, 255, 0.55),
+    inset 0 -8px 18px rgba(0, 0, 0, 0.45),
+    inset 0 0 25px rgba(0, 0, 0, 0.35);
+}
+
+.side-btn:active .icon,
+.side-btn:active span {
+  transform: scale(0.92);
+  /* shrink only inside content */
+  transition: transform 0.05s ease;
+}
+
+.btn-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.05s ease;
+}
+
+.side-btn:active .btn-content {
+  transform: scale(0.92);
+  /* shrink group together */
+}
+
+.side-btn:hover {
+  background: rgba(255, 255, 255, 0.28);
+  cursor: pointer;
+}
+
+.side-btn.active {
+  background: rgba(0, 0, 0, 0.22);
+  box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.507);
+}
+
+
+.side-btn:first-of-type {
+  border-top: none;
+}
+
+/* Last button gets curved right corner */
+.side-btn.last {
+  border-bottom-right-radius: 22px;
+}
+
+/* Icon styling */
+.side-btn .icon {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+/* Text styling */
+.side-btn span {
+  font-size: 25px;
+  /* ⬅ CHANGED FROM 16px */
+  font-weight: 600;
+  color: #555;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+/* ----- MAIN AREA ----- */
+
+.main {
+  flex: 1;
+  padding: 20px;
+  /*  ADD THIS LINE */
+  margin-left: 10%;
+  /*  ADD THIS LINE */
+}
+
+
+
+
+/* ----- BUBBLE ROW ----- */
+
+.bubble-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+  overflow-x: auto;
+}
+
+.bubble {
+  background: var(--bubble-bg);
+  padding: 10px 15px;
+  border-radius: 20px;
+  min-width: 150px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+}
+
+.bubble span {
+  color: #777;
+  font-size: 12px;
+}
+
+/* ----- GAME GRID ----- */
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.game-card {
+  height: 150px;
+  background: var(--card-bg);
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+}
+
+#profile {
+  opacity: 1 !important;
+  /* restore full color */
+  filter: saturate(2) brightness(1.15) !important;
+}
+
+.logo-gradient-mask {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: url('/assets/logo/musii.png') center / contain no-repeat;
+  mask: url('/assets/logo/musii.png') center / contain no-repeat;
+  background: linear-gradient(45deg, var(--accent1), var(--accent2));
+}
+
+/* Overlay for profile theme gradient */
+.logo-gradient-mask .logo-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: linear-gradient(45deg, #ff7ccb, #ffbcf9);
+  -webkit-mask: url('/assets/logo/musii.png') center / contain no-repeat;
+  mask: url('/assets/logo/musii.png') center / contain no-repeat;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+
+
+
+

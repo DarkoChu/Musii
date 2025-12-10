@@ -1,0 +1,165 @@
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.discover-header {
+  font-size: 26px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 14px;
+}
+
+.featured-row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.featured-card {
+  min-width: 220px;
+  height: 310px;
+  background: #fff;
+  border-radius: 32px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.fc-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6fa8ff, #3c6fff);
+}
+
+.fc-title {
+  background: #f3f3f3;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+}
+
+.fc-caption {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.3;
+  font-weight: 300;
+}
+
+.fc-media {
+  flex: 1;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #c7e7ff, #9ecbff);
+  border: 4px solid #000;
+}
+
+.fc-stats {
+  align-self: center;
+  background: linear-gradient(135deg, #ff7a7a, #ffb347);
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 6px 18px;
+  border-radius: 999px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+}
+
+
+.featured-card::after {
+  content: "";
+  position: absolute;
+  inset: 30% 30%;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #a0d8ff, #6ea8ff);
+  opacity: 0.6;
+}
+
+.discover-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.discover-tile {
+  height: 170px;
+  border-radius: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: transform 0.12s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.discover-tile:hover {
+  transform: scale(1.03);
+}
+
+.discover-tile::after {
+  content: "";
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.65);
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.7);
+}
+
+.discover-tile.theme {
+  background: linear-gradient(135deg, #ffc046, #ff8c00);
+}
+
+.discover-tile.media {
+  background: linear-gradient(135deg, #9f7cff, #5f47ff);
+}
+
+.discover-tile.audio {
+  background: linear-gradient(135deg, #3bd4ff, #2fa4ff);
+}
+
+.discover-tile.pixel {
+  background: linear-gradient(135deg, #00d084, #00a86b);
+}
+
+.fc-caption {
+  font-weight: 300;
+}
+
+.fc-stats {
+  font-weight: 400;
+}
+
+.discover-header {
+  display: inline-block;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  padding: 8px 18px;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  font-size: 22px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+.discover-page {
+  animation: fadeIn 0.4s ease;
+}
+
+.discover-header {
+  font-size: 26px;
+  padding: 12px 24px;
+  border-radius: 999px;
+}
+

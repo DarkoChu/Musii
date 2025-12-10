@@ -1,0 +1,100 @@
+:root {
+  --accent1: #00c3ff;
+  --accent2: #71ffb9;
+
+  --bg1: #d2faff;
+  --bg2: #f2fff6;
+
+  --sidebar-bg: rgba(255, 255, 255, 0.55);
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --bubble-bg: white;
+  --card-bg: white;
+}
+
+*, img {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  -webkit-user-drag: none;
+}
+
+.topbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  position: relative;
+}
+
+.wiiu-glass {
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+
+  background: rgba(255, 255, 255, 0.25);
+
+  box-shadow: inset 0 0 50px rgb(255, 255, 255),
+    inset 0 0 50px rgba(255, 255, 255, 1), 0 4px 8px rgba(0, 56, 141, 0.2),
+    0 0 12px rgba(255, 255, 255, 0.4);
+
+  border: 1px solid rgba(255, 255, 255, 0.55);
+
+  position: absolute;
+  padding: 18px 32px;
+}
+
+/* left pill */
+.topbar-left {
+  position: fixed;
+  top: 32px;
+  left: 12%;
+
+  padding: 18px 32px;
+  border-radius: 32px;
+  z-index: 9999;
+
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar-left .title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #555;
+  /* ← solid black again */
+  text-shadow: none;
+}
+
+/* right pill */
+.topbar-right {
+  position: fixed;
+  top: 32px;
+  right: 0;
+
+  padding: 18px 32px;
+
+  border-top-left-radius: 32px;
+  border-bottom-left-radius: 32px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar-right .right-info {
+  font-size: 22px;
+  font-weight: 600;
+  color: #555;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
