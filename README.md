@@ -54,4 +54,3 @@ Musii is a personal passion project blending:
 - [ ] Controller support
 - [ ] Find an API that recommends music based on MP3/WAV metadata
 
-

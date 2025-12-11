@@ -19,8 +19,8 @@
 .settings-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 32px; /* ⬅️ Increased from 25px */
-  margin-top: 20px; /* ⬅️ Adds space from the header pill */
+  gap: 32px;
+  margin-top: 20px;
 }
 
 
@@ -84,7 +84,6 @@
   color: #555;
 }
 
-/* ===== THEME SELECTOR ===== */
 
 .theme-card {
   text-align: center;
@@ -154,7 +153,6 @@
   margin-bottom: 0;
 }
 
-/* ===== THEME POPOUT MENU ===== */
 
 .theme-popout {
   position: absolute;
@@ -207,18 +205,15 @@
   transform: scale(0.95);
 }
 
-/* ===== THEME POPUP MENU ===== */
 
 .theme-popup {
   position: fixed;
 
-  /* Keep sidebar visible */
   top: 0;
   left: 10%;
   width: 90%;
   height: 100vh;
 
-  /* ✅ NO BACKGROUND */
   background: none;
 
   z-index: 99999;
@@ -229,6 +224,8 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.25s ease;
+
+  overflow: visible;
 }
 
 .theme-popup.active {
@@ -238,7 +235,6 @@
 
 
 
-/* ===== HEADER ===== */
 
 .theme-popup-header {
   display: flex;
@@ -247,18 +243,17 @@
 
   padding: 10px 20px;
 
-  /* ✅ push it safely below greeting + time */
   margin-top: 120px;
 }
 
 
 
 .theme-tab {
-  padding: 6px 14px;      /* ⬅️ smaller */
+  padding: 6px 14px;
   border-radius: 999px;
   border: none;
 
-  font-size: 14px;       /* ⬅️ smaller text */
+  font-size: 14px;
   cursor: pointer;
 
   background: rgba(255,255,255,0.85);
@@ -284,31 +279,41 @@
 
 .theme-popup-close {
   border: none;
-  font-size: 20px;   /* ⬅️ smaller */
+  font-size: 20px;
   background: none;
   cursor: pointer;
 }
 
 
-/* ===== BODY ===== */
 
 .theme-popup-body {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1.35fr 1fr;
   gap: 24px;
   padding: 20px 32px;
   flex: 1;
-  
+  overflow: visible;
+
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
-/* ===== LEFT LIST ===== */
 
 .theme-popup-list {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  overflow-y: auto;
+
+  overflow-y: visible;
+  overflow-x: hidden;
+
+  transform: translateX(-20px);
+
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
 }
+
 
 .theme-popup-item {
   background: white;
@@ -346,21 +351,21 @@
   font-weight: 600;
 }
 
-/* ===== RIGHT DETAILS ===== */
 
 .theme-popup-details {
   background: rgba(255,255,255,0.6);
   border-radius: 22px;
 
-  /* ✅ Smaller physical size */
-  padding: 14px;              /* was 22px */
-  max-width: 360px;          /* limits how wide it can grow */
+  padding: 14px;
+  max-width: 360px;
   max-height: 480px;
   height: auto;
+  min-height: 420px;
+  min-width: 420px;    
 
   display: flex;
   flex-direction: column;
-  gap: 8px;                   /* tighter spacing */
+  gap: 8px;
 
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   margin: 0 auto;
@@ -380,7 +385,7 @@
 
 .theme-big-preview {
   flex: 1;
-  min-height: 140px;    /* ⬅️ forces it smaller */
+  min-height: 140px;
   border-radius: 18px;
   background: linear-gradient(135deg, #b6e3ff, #e4ccff);
 }
@@ -397,14 +402,14 @@
 }
 
 .theme-popup-title {
-  font-size: 26px;   /* ✅ same as .settings-header */
+  font-size: 26px;
   font-weight: 600;
   color: #555;
 
   background: var(--glass-bg);
   backdrop-filter: blur(8px);
 
-  padding: 12px 24px;   /* ✅ exact same as settings pill */
+  padding: 12px 24px;
   border-radius: 999px;
 
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
