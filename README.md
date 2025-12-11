@@ -8,6 +8,14 @@
   />
 </div>
 
+<!-- <img
+    alt="Musii"
+    src="https://github.com/DarkoChu/Musii/blob/main/Musii%20Logo.png?raw=true"
+    title="Musii Logo"
+    width="360"
+    style="max-width:100%; transform:translateX(50px) translateY(-50px)"
+  /> -->
+
 <!-- Heavily stylized vtuberized logo by me! :3 -->
 <!-- Thanks Docker on Windows for the image div :'3 -->
 
@@ -43,3 +51,4 @@ Musii is a personal passion project blending:
 - [ ] Make this a proper web app
 - [ ] Find an API that recommends music based on MP3/WAV metadata
 - [ ] **DRAW JOHN MUSII >:3333**
+
