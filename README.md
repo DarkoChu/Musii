@@ -46,9 +46,12 @@ Musii is a personal passion project blending:
 - A cozy, nostalgic media experience
 - A stylized, playful aesthetic
 
-## Todo
+## To-do
 
-- [ ] Make this a proper web app
-- [ ] Find an API that recommends music based on MP3/WAV metadata
 - [ ] **DRAW JOHN MUSII >:3333**
+- [ ] Fix the Discovery Page layout
+- [ ] Make this a proper web app
+- [ ] Controller support
+- [ ] Find an API that recommends music based on MP3/WAV metadata
+
 
